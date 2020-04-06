@@ -13,5 +13,8 @@ z = "I like turtles!"
 # x is 10, y is 2.25, z is "I like turtles!"
 
 # Use the 'format' string method to print the same thing
+mystring = "x is {}, y is {:.2f}, z is {}"
+print(mystring.format(x,y,z))
 
 # Finally, print the same thing using an f-string
+print(f"x is {x}, y is {y:.2f}, z is {z}")
