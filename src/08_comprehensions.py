@@ -32,22 +32,13 @@ print(y)
 
 # Use a list comprehension to create a list containing only the _even_ elements
 # the user entered into list x.
+
+print("line break")
 y=[]
 x = input("Enter comma-separated numbers: ").split(',')
-for i in range(0, len(x)):
-    x[i] = int(x[i])
-for num in x:
-    if (num % 2 == 0):
-        y.append(num)
-    else:
-        pass
 
+y = [i for i in x if int(i) % 2 == 0]
 
 # What do you need between the square brackets to make it work?
-y = []
-for num in x:
-    if (num % 2 == 0):
-        y.append(num)
-    else:
-        pass
+
 print(y)
