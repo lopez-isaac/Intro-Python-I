@@ -31,24 +31,40 @@ import sys
 import calendar
 from datetime import datetime
 
-cur_year = datetime.now().year
-cur_month = datetime.now().month
+#cur_year = datetime.now().year
+#cur_month = datetime.now().month
 
-month_input = int(input("Enter the month ex:4 : ") or cur_month)
-year_input = int(input("Enter the year ex:2020: ") or cur_year)
-print(calendar.month(year_input,month_input))
+#month_input = int(input("Enter the month ex:4 : ") or cur_month)
+#year_input = int(input("Enter the year ex:2020: ") or cur_year)
+#print(calendar.month(year_input,month_input))
 
 
 args = sys.argv
 print(len(args))
 
+# start calendar on Sunday:
+c = calendar.TextCalendar(calendar.SUNDAY)
+# if no value given, default to current date:
+month = datetime.now().month
+year = datetime.now().year
+# if only month is given:
+if len(args) == 2:
+    month = int(args[1])
+# if month and year are given:
+elif len(args) == 3:
+    month = int(args[1])
+    year = int(args[2])
+# if something other is given:
+else:
+    print("ERROR: Should be in format: '14_cal.py [month] [year]'")
+# if incorrect month value given:
+if month < 1 or month > 12:
+    print("ERROR: Invalid entry for month, should be 1-12")
+    exit()
+c.prmonth(year, month)
 
 
-if len(str(month_input)) > 2:
-  print("try again")
-  #raise LengthError("Invalid month")
-if len(str(year_input)) > 4 or len(year_input) < 4:
-  print("try again")
-  #raise LengthError("invalid year")
+
+
 
 
